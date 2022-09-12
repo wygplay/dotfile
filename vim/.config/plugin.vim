@@ -2,6 +2,8 @@ call plug#begin()
 Plug 'easymotion/vim-easymotion'
 Plug 'lilydjwg/fcitx.vim', {'branch': 'fcitx4'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
 call plug#end()
 
