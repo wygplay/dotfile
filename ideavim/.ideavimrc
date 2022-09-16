@@ -1,0 +1,92 @@
+"" Source your .vimrc
+"source ~/.vimrc
+" leader
+let mapleader = " "
+"语法高亮
+syntax on
+"显示光标所在位置的行号和列号
+set ruler
+set wrap                      "自动折行
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set expandtab                  "将tab替换为相应数量空格
+set smartindent
+set backspace=2
+set co=5
+"设置取消备份 禁止临时文件生成
+set nobackup
+set noswapfile
+" 为IdeaVim插件增加自动切换为英文输入法的功能,
+" idea 需要安装 IdeaVimExtension plugin
+set keep-english-in-normal-and-restore-in-insert
+"设置匹配模式 类似当输入一个左括号时会匹配相应的那个右括号
+set showmatch
+" 启用vim surround功能
+set surround
+" 启用multi cursor
+set multiple-cursors
+" 显示行号
+set nu
+" 显示相对行号
+set rnu
+" 高亮搜索
+set hlsearch
+" 自动定位到输入中的字符串，不需要回车搜索
+set incsearch
+" 显示当前的模式
+set showmode
+" 共享系统粘贴板
+set clipboard=unnamed
+set clipboard+=ideaput
+" 搜索时智能匹配大小写
+set ignorecase smartcase
+
+" Insert
+"set laststatus=2   "命令行为两行
+"set fenc=utf-8     "文件编码
+set mouse=a        "启用鼠标
+"set ignorecase     "忽略大小写
+set cursorline     "突出显示当前行
+"set cursorcolumn   "突出显示当前列 set fdm=marker "" -- Suggested options -- " Show a few lines of context around the cursor. Note that this makes the " text scroll if you mouse-click near the start or end of the window.
+njse scrollmap <leader>c <>(Close)off=5
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+
+" Find more examples here: https://jb.gg/share-ideavimrc
+inoremap ii <Esc>
+" idea easymotion 不支持overwin命令
+set easymotion
+nmap s <Plug>(easymotion-s2)
+nmap sn <Plug>(easymotion-sn)
+" vim easymotion configuration
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+" move tabs
+map <a-j> gT
+map <a-k> gt
+nnoremap <Leader>c <Esc>:tabcose<CR>
