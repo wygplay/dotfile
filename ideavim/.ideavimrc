@@ -2,6 +2,7 @@
 "source ~/.vimrc
 " leader
 let mapleader = " "
+" vim原生功能映射
 "语法高亮
 syntax on
 "显示光标所在位置的行号和列号
@@ -22,10 +23,6 @@ set noswapfile
 set keep-english-in-normal-and-restore-in-insert
 "设置匹配模式 类似当输入一个左括号时会匹配相应的那个右括号
 set showmatch
-" 启用vim surround功能
-set surround
-" 启用multi cursor
-set multiple-cursors
 " 显示行号
 set nu
 " 显示相对行号
@@ -41,52 +38,56 @@ set clipboard=unnamed
 set clipboard+=ideaput
 " 搜索时智能匹配大小写
 set ignorecase smartcase
-
-" Insert
 "set laststatus=2   "命令行为两行
 "set fenc=utf-8     "文件编码
 set mouse=a        "启用鼠标
 "set ignorecase     "忽略大小写
 set cursorline     "突出显示当前行
-"set cursorcolumn   "突出显示当前列 set fdm=marker "" -- Suggested options -- " Show a few lines of context around the cursor. Note that this makes the " text scroll if you mouse-click near the start or end of the window.
-njse scrollmap <leader>c <>(Close)off=5
-
-" Don't use Ex mode, use Q for formatting.
-map Q gq
 
 
-"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
-"" Map \r to the Reformat Code action
-"map \r <Action>(ReformatCode)
-
-"" Map <leader>d to start debug
-map <leader>d <Action>(Debug)
-
-"" Map \b to toggle the breakpoint on the current line
-"map \b <Action>(ToggleLineBreakpoint)
-
-
-" Find more examples here: https://jb.gg/share-ideavimrc
-inoremap ii <Esc>
-" idea easymotion 不支持overwin命令
+" plugins ----------------------------------------------------------------
+" 启用vim surround功能
+set surround
+set multiple-cursors
 set easymotion
-nmap s <Plug>(easymotion-s2)
-nmap sn <Plug>(easymotion-sn)
+set NERDTree
+
+" Plugins configuration -------------------------------------------------
 " vim easymotion configuration
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 " Turn on case-insensitive feature
 let g:EasyMotion_smartcase = 1
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
-" Without these mappings, `n` & `N` works fine. (These mappings just provide
-" different highlight method and have some other features )
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
+
+
+" mappings ----------------------------------------------------------------
+" Don't use Ex mode, use Q for formatting.
+nmap Q gq
+inoremap ii <Esc>
+map <a-j> gT
+map <a-k> gt
+nmap g0 1gt
+" idea easymotion 不支持overwin命令
+nmap s <Plug>(easymotion-s2)
+nmap sn <Plug>(easymotion-sn)
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
-" move tabs
-map <a-j> gT
-map <a-k> gt
-nnoremap <Leader>c <Esc>:tabcose<CR>
+map <Leader>c <Esc>:tabclose<CR>
+
+
+" Idea actions mappings ---------------------------------------------------
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+nmap gi <Action>(GotoImplementation)
+map <leader>d <Action>(Debug)
+map <leader>r <Action>(ReformatCode)
+" Find more examples here: https://jb.gg/share-ideavimrc
+map <leader>u <Action>(FindUsages)
+" 创建
+map <leader>nc <Action>(NewClass)
+" ideavimrc重新加载
+map <leader>vl <Action>(IdeaVim.ReloadVimRc.reload)
+" 跳转命令
+" jump to file postion in project view
+map <Leader>jf <Action>(SelectInProjectView)
+" window 相关
+map <leader>wc <Action>(HideActiveWindow)
