@@ -69,6 +69,7 @@ nmap g0 1gt
 " idea easymotion 不支持overwin命令
 map f <Plug>(easymotion-sl)
 map s <Plug>(easymotion-sn)
+map \w <Plug>(easymotion-bd-wl)
 " JK motions: Line motions
 nmap <Leader><leader>j <Plug>(easymotion-j)
 nmap <Leader><leader>k <Plug>(easymotion-k)
@@ -77,21 +78,24 @@ nmap <Leader>c <Esc>:tabclose<CR>
 
 " Idea actions mappings ---------------------------------------------------
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
-nmap gi <Action>(GotoImplementation)
-nmap / <Action>(Find)
-nmap <leader>d <Action>(Debug)
-nmap <leader>r <Action>(ReformatCode)
+map gi <Action>(GotoImplementation)
+map / <Action>(Find)
+map <leader>d <Action>(Debug)
+map <leader>r <Action>(ReformatCode)
 " Find more examples here: https://jb.gg/share-ideavimrc
-nmap <leader>u <Action>(FindUsages)
+map <leader>u <Action>(FindUsages)
 " 创建
-nmap <leader>nc <Action>(NewClass)
+map <leader>nc <Action>(NewClass)
 " ideavimrc重新加载
-nmap <leader>vl <Action>(IdeaVim.ReloadVimRc.reload)
+map <leader>vl <Action>(IdeaVim.ReloadVimRc.reload)
 " 跳转命令
 " jump to file postion in project view
-nmap <Leader>tl <Action>(SelectInProjectView)
+map <Leader>jl <Action>(SelectInProjectView)
 " window 相关
-nmap <leader>x <Action>(HideActiveWindow)
+map <leader>x <Action>(HideActiveWindow)
 "open window"
-nmap <leader>ws <Action>(FileStructurePopup)
-nmap <leader>wf <Action>(FindInFile)
+map <leader>ws <Action>(FileStructurePopup)
+map <leader>wf <Action>(FindInFile)
+" reading code
+map <leader>hi <Action>(Rainbow.ScopeHighlightingAction)
+map <leader>ho <Action>(Rainbow.ScopeOutsideHighlightingRestrainAction)
