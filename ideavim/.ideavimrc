@@ -73,7 +73,7 @@ map \w <Plug>(easymotion-bd-wl)
 " JK motions: Line motions
 nmap <Leader><leader>j <Plug>(easymotion-j)
 nmap <Leader><leader>k <Plug>(easymotion-k)
-nmap <Leader>c <Esc>:tabclose<CR>
+map <Leader>x <Esc>:tabclose<CR>
 
 
 " Idea actions mappings ---------------------------------------------------
@@ -84,6 +84,8 @@ map <leader>d <Action>(Debug)
 map <leader>r <Action>(ReformatCode)
 " Find more examples here: https://jb.gg/share-ideavimrc
 map <leader>u <Action>(FindUsages)
+map <leader>m <Action>(ExtractMethod)
+map <leader>c <Action>(IntroduceConstant)
 " 创建
 map <leader>nc <Action>(NewClass)
 " ideavimrc重新加载
@@ -92,10 +94,13 @@ map <leader>vl <Action>(IdeaVim.ReloadVimRc.reload)
 " jump to file postion in project view
 map <Leader>jl <Action>(SelectInProjectView)
 " window 相关
-map <leader>x <Action>(HideActiveWindow)
+map <leader>wx <Action>(HideActiveWindow)
 "open window"
 map <leader>ws <Action>(FileStructurePopup)
 map <leader>wf <Action>(FindInFile)
 " reading code
 map <leader>hi <Action>(Rainbow.ScopeHighlightingAction)
 map <leader>ho <Action>(Rainbow.ScopeOutsideHighlightingRestrainAction)
+" project
+map <leader>po <Esc>:NERDTree<CR>
+map <leader>px <Esc>:NERDTreeClose<CR>
