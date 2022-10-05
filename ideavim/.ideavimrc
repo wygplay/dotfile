@@ -89,10 +89,11 @@ map <leader>l <Action>(ReformatCode)
 map <leader>u <Action>(FindUsages)
 map <leader>m <Action>(ExtractMethod)
 map <leader>c <Action>(IntroduceConstant)
-map <leader>r <Action>(RenameElement)
+map <leader>n <Action>(RenameElement)
 map <leader>s <Action>(FindInPath)
+map <leader>r <Action>(ReplaceInPath)
 " 创建
-map <leader>nc <Action>(NewClass)
+map <leader>ac <Action>(NewClass)
 " ideavimrc重新加载
 map <leader>vl <Action>(IdeaVim.ReloadVimRc.reload)
 " 跳转命令
@@ -100,14 +101,17 @@ map <leader>vl <Action>(IdeaVim.ReloadVimRc.reload)
 map <Leader>jl <Action>(SelectInProjectView)
 " window 相关
 map <leader>wx <Action>(HideActiveWindow)
-"open window"
+"open window
 map <leader>ws <Action>(FileStructurePopup)
+map <leader>wd <Action>(ShowUmlDiagram)
 " reading code
 map <leader>hi <Action>(Rainbow.ScopeHighlightingAction)
 map <leader>ho <Action>(Rainbow.ScopeOutsideHighlightingRestrainAction)
 " project
-map <leader>po <Esc>:NERDTree<CR>
+map <leader>pp <Esc>:NERDTree<CR>
 map <leader>px <Esc>:NERDTreeClose<CR>
+map <leader>po <Action>(OpenFile)
+map <leader>pe <Action>(ManageRecentProjects)
 
 
 " 通用键前缀
