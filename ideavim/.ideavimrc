@@ -66,9 +66,9 @@ let g:EasyMotion_smartcase = 1
 " Don't use Ex mode, use Q for formatting.
 nmap Q gq
 inoremap ii <Esc>
-map <a-j> gT
-map <a-k> gt
-nmap g0 1gt
+map <a-j> <Esc>:tabp<CR>
+map <a-k> <Esc>:tabn<CR>
+nmap g0 <Esc>:tabn1<CR>
 " idea easymotion 不支持overwin命令
 map f <Plug>(easymotion-sl)
 map s <Plug>(easymotion-sn)
@@ -83,6 +83,9 @@ map <Leader>x <Esc>:tabclose<CR>
 " Find more examples here: https://jb.gg/share-ideavimrc
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 map gi <Action>(GotoImplementation)
+map gt <Action>(GotoTest)
+map <c-n> <Action>(Tree-selectNext)
+map <c-p> <Action>(Tree-selectPrevious)
 map / <Action>(Find)
 map <leader>d <Action>(Debug)
 map <leader>l <Action>(ReformatCode)
