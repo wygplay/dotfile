@@ -6,6 +6,13 @@
         {
             "command": 
             {
+                "action": "prevTab"
+            },
+            "keys": "alt+j"
+        },
+        {
+            "command": 
+            {
                 "action": "copy",
                 "singleLine": false
             },
@@ -27,6 +34,21 @@
                 "splitMode": "duplicate"
             },
             "keys": "alt+shift+d"
+        },
+        {
+            "command": 
+            {
+                "action": "nextTab"
+            },
+            "keys": "alt+k"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+shift+tab"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+tab"
         }
     ],
     "copyFormatting": "none",
@@ -85,6 +107,10 @@
             {
                 "bellStyle": "none",
                 "colorScheme": "Dracula",
+                "font": 
+                {
+                    "face": "Cascadia Mono PL"
+                },
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": false,
                 "name": "Ubuntu",
