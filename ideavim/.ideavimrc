@@ -119,6 +119,7 @@ map <leader>pe <Action>(ManageRecentProjects)
 " git operations
 map <leader>gg <Action>(ActivateVersionControlToolWindow)
 map <leader>gp <Action>(Vcs.Push)
+map <leader>gh <Action>(Vcs.ShowTabbedFileHistory)
 
 " 通用键前缀
 " Increase timeoutlen when <Leader> is pressed
