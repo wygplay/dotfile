@@ -77,7 +77,16 @@ map \w <Plug>(easymotion-bd-wl)
 nmap <Leader><leader>j <Plug>(easymotion-j)
 nmap <Leader><leader>k <Plug>(easymotion-k)
 map <Leader>x <Esc>:tabclose<CR>
-
+" move in insert mode
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+inoremap <C-j> <Up>
+inoremap <C-k> <Down>
+" window move
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
 
 " Idea action mappings ---------------------------------------------------
 " Find more examples here: https://jb.gg/share-ideavimrc
@@ -101,13 +110,15 @@ map <leader>ac <Action>(NewClass)
 " ideavimrc重新加载
 map <leader>vl <Action>(IdeaVim.ReloadVimRc.reload)
 " 跳转命令
-" jump to file postion in project view
+" jump to file position in project view
 map <Leader>jl <Action>(SelectInProjectView)
 " window 相关
 map <leader>wx <Action>(HideActiveWindow)
 "open window
 map <leader>ws <Action>(FileStructurePopup)
 map <leader>wd <Action>(ShowUmlDiagram)
+map <leader>wh <Action>(TypeHierarchy)
+
 " reading code
 map <leader>hi <Action>(Rainbow.ScopeHighlightingAction)
 map <leader>ho <Action>(Rainbow.ScopeOutsideHighlightingRestrainAction)
@@ -120,6 +131,7 @@ map <leader>pe <Action>(ManageRecentProjects)
 map <leader>gg <Action>(ActivateVersionControlToolWindow)
 map <leader>gp <Action>(Vcs.Push)
 map <leader>gh <Action>(Vcs.ShowTabbedFileHistory)
+map <leader>gk <Action>(CheckinProject)
 
 " 通用键前缀
 " Increase timeoutlen when <Leader> is pressed
