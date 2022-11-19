@@ -1,0 +1,72 @@
+[
+    {
+        "command": "vscode-neovim.compositeEscape1",
+        "key": "i",
+        "when": "neovim.mode == insert && editorTextFocus",
+        "args": "i"
+    },
+    {
+        "command": "vscode-neovim.send",
+        // the key sequence to activate the binding
+        "key": "ctrl+l",
+        // don't activate during insert mode
+        "when": "editorTextFocus",
+        // the input to send to Neovim
+        "args": "<C-l>"
+    },
+    {
+        "command": "vscode-neovim.send",
+        // the key sequence to activate the binding
+        "key": "ctrl+k",
+        // don't activate during insert mode
+        "when": "editorTextFocus",
+        // the input to send to Neovim
+        "args": "<C-k>"
+    },
+    {
+        "command": "vscode-neovim.send",
+        // the key sequence to activate the binding
+        "key": "alt+k",
+        // the input to send to Neovim
+        "args": "<A-k>"
+    },
+    {
+        "command": "vscode-neovim.send",
+        // the key sequence to activate the binding
+        "key": "alt+j",
+        // the input to send to Neovim
+        "args": "<A-j>"
+    },
+    {
+        "key": "alt+j",
+        "command": "-editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+k",
+        "command": "-keybindings.editor.recordSearchKeys",
+        "when": "inKeybindings && inKeybindingsSearch"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "-workbench.action.quickOpenSelectNext",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "-workbench.action.quickOpenSelectPrevious",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "-workbench.action.files.newUntitledFile"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "-workbench.action.showAllSymbols"
+    }
+]
