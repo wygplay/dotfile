@@ -13,14 +13,17 @@ nnoremap <Down>  :echoe "Use j"<CR>
 " move in insert mode
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
-inoremap <C-j> <Up>
-inoremap <C-k> <Down>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
 " window move
 nmap <C-h> <C-w>h
 nmap <C-l> <C-w>l
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 
+" tab move
+map <a-j> <Esc>:tabp<CR>
+map <a-k> <Esc>:tabnext<CR>
 " 自动补全
 inoremap ( ()<ESC>i
 inoremap [ []<ESC>i
@@ -37,7 +40,8 @@ inoremap ii <Esc>
 " or
 " `s{char}{char}{label}`
 " Need one more keystroke, but on average, it may be more comfortable.
-nmap s <Plug>(easymotion-overwin-f2)
+map f <Plug>(easymotion-sl)
+nmap s <Plug>(easymotion-s2)
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)

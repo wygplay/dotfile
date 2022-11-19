@@ -12,7 +12,7 @@
 set nocompatible
 " Turn on syntax highlighting.
 syntax on
-
+let g:mapleader = " "
 " Disable the default Vim startup message.
 set shortmess+=I
 
