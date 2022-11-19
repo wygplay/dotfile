@@ -26,3 +26,8 @@ Set-Alias g git
 
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineOption -PredictionSource History
+
+# spacevim
+function svim() {
+	nvim -u C:\Users\lenovo\.SpaceVim\vimrc
+}

@@ -80,8 +80,8 @@ map <Leader>x <Esc>:tabclose<CR>
 " move in insert mode
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
-inoremap <C-j> <Up>
-inoremap <C-k> <Down>
+inoremap <C-k> <Up>
+inoremap <C-j> <Down>
 " window move
 nmap <C-h> <C-w>h
 nmap <C-l> <C-w>l
@@ -116,8 +116,10 @@ map <Leader>jl <Action>(SelectInProjectView)
 map <leader>wx <Action>(HideActiveWindow)
 "open window
 map <leader>ws <Action>(FileStructurePopup)
-map <leader>wd <Action>(ShowUmlDiagram)
+map <leader>wu <Action>(ShowUmlDiagram)
 map <leader>wh <Action>(TypeHierarchy)
+map <leader>wg <Action>(Generate)
+nmap <leader>wd <Action>(ActivateDependenciesToolWindow)
 
 " reading code
 map <leader>hi <Action>(Rainbow.ScopeHighlightingAction)
