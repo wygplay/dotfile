@@ -94,8 +94,6 @@ nmap <C-k> <C-w>k
 map gi <Action>(GotoImplementation)
 map gt <Action>(GotoTest)
 map gu <Action>(GotoSuperMethod)
-map <c-n> <Action>(Tree-selectNext)
-map <c-p> <Action>(Tree-selectPrevious)
 map / <Action>(Find)
 map <leader>d <Action>(Debug)
 map <leader>l <Action>(ReformatCode)

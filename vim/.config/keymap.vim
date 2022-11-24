@@ -5,6 +5,8 @@ nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
 " for movement, rather than using more efficient movement commands, is also a
 " bad habit. The former is enforceable through a .vimrc, while we don't know
 " how to prevent the latter.
+nmap j gj
+nmap k gk
 " Do this in normal mode...
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
