@@ -60,11 +60,22 @@ set NERDTree
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 " Turn on case-insensitive feature
 let g:EasyMotion_smartcase = 1
+let g:multi_cursor_use_default_mapping=0
 
+" Default mapping
+let g:multi_cursor_start_word_key      = '<C-n>'
+let g:multi_cursor_select_all_word_key = '<A-n>'
+let g:multi_cursor_start_key           = 'g<C-n>'
+let g:multi_cursor_select_all_key      = 'g<A-n>'
+let g:multi_cursor_next_key            = '<C-n>'
+let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
 
 " mappings ----------------------------------------------------------------
 " Don't use Ex mode, use Q for formatting.
 nmap Q gq
+" optimize i in insert mode
 inoremap ii <Esc>
 map <a-j> <Esc>:tabp<CR>
 map <a-k> <Esc>:tabn<CR>
@@ -76,7 +87,6 @@ map \w <Plug>(easymotion-bd-wl)
 " JK motions: Line motions
 nmap <Leader><leader>j <Plug>(easymotion-j)
 nmap <Leader><leader>k <Plug>(easymotion-k)
-map <Leader>x <Esc>:tabclose<CR>
 " move in insert mode
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
@@ -91,9 +101,10 @@ nmap <C-k> <C-w>k
 " Idea action mappings ---------------------------------------------------
 " Find more examples here: https://jb.gg/share-ideavimrc
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+nmap <C-o> <Action>(JumpToLastChange)
 map gi <Action>(GotoImplementation)
 map gt <Action>(GotoTest)
-map gu <Action>(GotoSuperMethod)
+map gs <Action>(GotoSuperMethod)
 map <a-h> <Action>(MethodUp)
 map <a-l> <Action>(MethodDown)
 map / <Action>(Find)
@@ -101,10 +112,12 @@ map <leader>d <Action>(Debug)
 map <leader>l <Action>(ReformatCode)
 map <leader>u <Action>(FindUsages)
 map <leader>m <Action>(ExtractMethod)
-map <leader>c <Action>(IntroduceConstant)
+map <Leader>c <Esc>:tabclose<CR>
 map <leader>n <Action>(RenameElement)
 map <leader>s <Action>(FindInPath)
-map <leader>r <Action>(ReplaceInPath)
+map <leader>r <Action>(RunClass)
+map <leader>e <Esc>:NERDTreeToggle<CR>
+nmap <leader>t <Action>(ActivateTerminalToolWindow)
 " 创建
 map <leader>ac <Action>(NewClass)
 " ideavimrc重新加载
@@ -115,18 +128,19 @@ map <Leader>jl <Action>(SelectInProjectView)
 " window 相关
 map <leader>wx <Action>(HideActiveWindow)
 "open window
-map <leader>ws <Action>(FileStructurePopup)
+map <leader>wf <Action>(FileStructurePopup)
 map <leader>wu <Action>(ShowUmlDiagram)
-map <leader>wh <Action>(TypeHierarchy)
+map <leader>wt <Action>(TypeHierarchy)
 map <leader>wg <Action>(Generate)
 nmap <leader>wd <Action>(ActivateDependenciesToolWindow)
+map <leader>ws <Action>(SurroundWith)
+" open quick definition of implementations
+map <leader>wi <Action>(QuickImplementations)
 
 " reading code
 map <leader>hi <Action>(Rainbow.ScopeHighlightingAction)
 map <leader>ho <Action>(Rainbow.ScopeOutsideHighlightingRestrainAction)
 " project
-map <leader>pp <Esc>:NERDTree<CR>
-map <leader>px <Esc>:NERDTreeClose<CR>
 map <leader>po <Action>(OpenFile)
 map <leader>pe <Action>(ManageRecentProjects)
 " git operations
@@ -134,10 +148,11 @@ map <leader>gg <Action>(ActivateVersionControlToolWindow)
 map <leader>gp <Action>(Vcs.Push)
 map <leader>gh <Action>(Vcs.ShowTabbedFileHistory)
 map <leader>gk <Action>(CheckinProject)
+map <leader>gr <Action>(ChangesView.Revert)
 
 " 通用键前缀
 " Increase timeoutlen when <Leader> is pressed
 " Only one of these lines is needed.  I am not sure which is most recommended.
 nmap <silent> <Leader> :<C-U>set timeoutlen=4000 ttimeoutlen=4000<CR>:call feedkeys('<Leader>')<CR>
 " Reset timeoutline to normal soon afterwards
-autocmd CursorMoved * set timeoutlen=1000 ttimeoutlen=50
+autocmd CursorMoved * set timeoutlen=200 ttimeoutlen=50

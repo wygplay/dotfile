@@ -2,13 +2,8 @@ Import-Module posh-git
 Import-Module Terminal-Icons
 
 Import-Module PSFzf
-#oh-my-posh init pwsh --config $env:POSH_THEMES_PATH/M365Princess.omp.json | Invoke-Expression
-oh-my-posh init pwsh --config ~/my-terminal.json| Invoke-Expression
-#Set-PoshPrompt -Theme agnoster
-#Set-PoshPrompt -Theme jandedobbeleer
-#Set-PoshPrompt -Theme aliens
-#Set-PoshPrompt -Theme star
-#Set-PoshPrompt -Theme wopian
+#oh-my-posh init pwsh --config ~\AppData\Local\Programs\oh-my-posh\themes\star.omp.json | Invoke-Expression
+oh-my-posh init pwsh --config ~/star-adjust.json| Invoke-Expression
 
 $env:PYTHONIOENCODING = "UTF-8"
 
