@@ -1,7 +1,6 @@
 Import-Module posh-git
-Import-Module Terminal-Icons
-
-Import-Module PSFzf
+#Import-Module Terminal-Icons
+#Import-Module PSFzf
 #oh-my-posh init pwsh --config ~\AppData\Local\Programs\oh-my-posh\themes\star.omp.json | Invoke-Expression
 oh-my-posh init pwsh --config ~/star-adjust.json| Invoke-Expression
 
@@ -21,6 +20,7 @@ Set-Alias g git
 
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineOption -PredictionSource History
+set-PSReadLineOption -EditMode "Emacs"
 
 # spacevim
 function svim() {
