@@ -19,3 +19,5 @@ return
     Send, ^{F8}
     Send, ^{Space}
 return
+
+CapsLock::Ctrl
