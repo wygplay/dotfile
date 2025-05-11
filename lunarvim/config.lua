@@ -208,6 +208,13 @@ lvim.plugins = {
       end, {remap=true})
     end,
   },
+  {
+        "kevinhwang91/nvim-ibus-sw",
+        event = "InsertEnter",
+        config = function()
+         require('ibus-sw').setup()
+        end,
+    }
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
