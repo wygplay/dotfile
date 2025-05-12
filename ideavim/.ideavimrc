@@ -102,7 +102,7 @@ nmap <C-k> <C-w>k
 " Idea action mappings ---------------------------------------------------
 " Find more examples here: https://jb.gg/share-ideavimrc
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
-nmap <C-o> <Action>(JumpToLastChange)
+nmap <C-o> <Action>(Back)
 map gi <Action>(GotoImplementation)
 map gt <Action>(GotoTest)
 map gs <Action>(GotoSuperMethod)

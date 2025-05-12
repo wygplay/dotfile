@@ -1,4 +1,4 @@
-﻿; vscode中按下esc键切换为英文
+; vscode中按下esc键切换为英文
 #HotIf WinActive("ahk_exe Code.exe")
 Esc::
 {
@@ -10,3 +10,9 @@ Esc::
 
 ; 键位映射
 CapsLock::Ctrl
+
+; 关机
+#q::
+{
+   shutdown 1
+}
