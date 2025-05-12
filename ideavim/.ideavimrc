@@ -55,6 +55,7 @@ set multiple-cursors
 set easymotion
 set NERDTree
 set argtextobj
+set which-key
 
 " Plugins configuration -------------------------------------------------
 " vim easymotion configuration
@@ -78,12 +79,10 @@ let g:multi_cursor_quit_key            = '<Esc>'
 nmap Q gq
 " optimize i in insert mode
 inoremap ii <Esc>
-map <a-j> <Esc>:tabp<CR>
-map <a-k> <Esc>:tabn<CR>
-nmap g0 <Esc>:tabn1<CR>
 " idea easymotion 不支持overwin命令
 map f <Plug>(easymotion-sl)
-map s <Plug>(easymotion-sn)
+map t <Plug>(easymotion-tl)
+map s <Plug>(easymotion-s2)
 map \w <Plug>(easymotion-bd-wl)
 " JK motions: Line motions
 nmap <Leader><leader>j <Plug>(easymotion-j)
@@ -103,30 +102,43 @@ nmap <C-k> <C-w>k
 " Find more examples here: https://jb.gg/share-ideavimrc
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 nmap <C-o> <Action>(Back)
+
+let g:WhichKeyDesc_goto = "g go to anywhere"
 map gi <Action>(GotoImplementation)
 map gt <Action>(GotoTest)
 map gs <Action>(GotoSuperMethod)
+nmap g0 <Esc>:tabn1<CR>
+" jump to file position in project view
+map gl <Action>(SelectInProjectView)
+map gu <Action>(GotoSuperMethod)
+
+map <a-j> <Esc>:tabp<CR>
+map <a-k> <Esc>:tabn<CR>
 map <a-h> <Action>(MethodUp)
 map <a-l> <Action>(MethodDown)
-map / <Action>(Find)
+
+" run
 map <leader>d <Action>(Debug)
-map <leader>l <Action>(ReformatCode)
-map <leader>u <Action>(FindUsages)
-map <leader>m <Action>(ExtractMethod)
-map <Leader>c <Esc>:tabclose<CR>
+map <leader>l <Action>(RunClass)
+" code refactor
+map <leader>r <Action>(ReformatCode)
 map <leader>n <Action>(RenameElement)
+map <leader>m <Action>(ExtractMethod)
+" find
+map / <Action>(Find)
 map <leader>s <Action>(FindInPath)
-map <leader>r <Action>(RunClass)
+map <leader>u <Action>(FindUsages)
+" views
+map <Leader>c <Esc>:tabclose<CR>
 map <leader>e <Esc>:NERDTreeToggle<CR>
 nmap <leader>t <Action>(ActivateTerminalToolWindow)
 " 创建
-map <leader>ac <Action>(NewClass)
+map <leader>a <Action>(NewClass)
 " ideavimrc重新加载
-map <leader>vl <Action>(IdeaVim.ReloadVimRc.reload)
-" 跳转命令
-" jump to file position in project view
-map <Leader>jl <Action>(SelectInProjectView)
+map <leader>v <Action>(IdeaVim.ReloadVimRc.reload)
+
 " window 相关
+let g:WhichKeyDesc_windows = "<Space>w operations about Windows"
 map <leader>wx <Action>(HideActiveWindow)
 "open window
 map <leader>wf <Action>(FileStructurePopup)
@@ -135,16 +147,20 @@ map <leader>wt <Action>(TypeHierarchy)
 map <leader>wg <Action>(Generate)
 nmap <leader>wd <Action>(ActivateDependenciesToolWindow)
 map <leader>ws <Action>(SurroundWith)
+map <leader>wp <Action>(WelcomeScreen.Plugins)
 " open quick definition of implementations
 map <leader>wi <Action>(QuickImplementations)
 
 " reading code
+let g:WhichKeyDesc_read = "<Space>h operations while reading code"
 map <leader>hi <Action>(Rainbow.ScopeHighlightingAction)
 map <leader>ho <Action>(Rainbow.ScopeOutsideHighlightingRestrainAction)
 " project
+let g:WhichKeyDesc_project = "<Space>p operations in project view"
 map <leader>po <Action>(OpenFile)
 map <leader>pe <Action>(ManageRecentProjects)
 " git operations
+let g:WhichKeyDesc_git = "<Space>g git operations"
 map <leader>gg <Action>(ActivateVersionControlToolWindow)
 map <leader>gp <Action>(Vcs.Push)
 map <leader>gh <Action>(Vcs.ShowTabbedFileHistory)
@@ -153,7 +169,6 @@ map <leader>gr <Action>(ChangesView.Revert)
 
 " 通用键前缀
 " Increase timeoutlen when <Leader> is pressed
-" Only one of these lines is needed.  I am not sure which is most recommended.
 nmap <silent> <Leader> :<C-U>set timeoutlen=4000 ttimeoutlen=4000<CR>:call feedkeys('<Leader>')<CR>
 " Reset timeoutline to normal soon afterwards
 autocmd CursorMoved * set timeoutlen=200 ttimeoutlen=50
