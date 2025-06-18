@@ -13,6 +13,8 @@ vim.opt.relativenumber = true
 vim.opt.shiftwidth = 4
 -- insert 4 spaces for a tab
 vim.opt.tabstop = 4
+vim.opt.termguicolors = true
+vim.opt.clipboard = "unnamedplus"
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = false
@@ -24,7 +26,6 @@ lvim.colorscheme = "onedark"
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.keys.insert_mode["ii"] = "<esc>"
 lvim.keys.insert_mode["<C-h>"] = "<left>"
 lvim.keys.insert_mode["<C-j>"] = "<down>"
 lvim.keys.insert_mode["<C-k>"] = "<up>"
@@ -98,6 +99,25 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
 
+-- plugins keymaps 
+lvim.builtin.which_key.mappings["S"]= {
+    name = "Session",
+    c = { "<cmd>lua require('persistence').load()<cr>", "Restore last session for current dir" },
+    f = { "<cmd>lua require('persistence').select()<cr>", "Select a session to load" },
+    l = { "<cmd>lua require('persistence').load({ last = true })<cr>", "Restore last session" },
+    d = { "<cmd>lua require('persistence').stop()<cr>", "Quit without saving session" },
+}
+-- load the session for the current directory
+vim.keymap.set("n", "<leader>Ss", function() require("persistence").load() end)
+
+-- select a session to load
+vim.keymap.set("n", "<leader>SS", function() require("persistence").select() end)
+
+-- load the last session
+vim.keymap.set("n", "<leader>Sl", function() require("persistence").load({ last = true }) end)
+
+-- stop Persistence => session won't be saved on exit
+vim.keymap.set("n", "<leader>Sd", function() require("persistence").stop() end)
 -- generic LSP settings
 
 -- -- make sure server will always be installed even if the server is in skipped_servers list
@@ -214,7 +234,67 @@ lvim.plugins = {
         config = function()
          require('ibus-sw').setup()
         end,
-    }
+    },
+    {
+        "kawre/leetcode.nvim",
+        dependencies = {
+            "nvim-telescope/telescope.nvim",
+            "nvim-lua/plenary.nvim",
+            { "MunifTanjim/nui.nvim", lazy = true},
+            "nvim-treesitter/nvim-treesitter",
+            "rcarriga/nvim-notify",
+            -- "nvim-tree/nvim-web-devicons", -- 可选
+        },
+        opts = {
+            cn = {enabled = true},
+        },
+        config = function ()
+            require('leetcode').setup({
+                arg = 'leet',
+                lang = 'java',
+                cn = {
+                    enabled = true,
+                }
+            })
+        end
+    },
+    {
+        "max397574/better-escape.nvim",
+        config = function()
+            require("better_escape").setup {
+                timeout = vim.o.timeoutlen,
+                default_mappings = true,
+                mappings = {
+                    i = {
+                        i = {
+                            i = "<Esc>",
+                        }
+                    }
+                }
+            }
+        end,
+    },
+    {
+        "kylechui/nvim-surround",
+        version = "^3.0.0", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
+    },
+    -- session manager
+    {
+        "folke/persistence.nvim",
+        event = "BufReadPre", -- this will only start session saving when an actual file was opened
+        config = function()
+            require("persistence").setup {
+                dir = vim.fn.expand(vim.fn.stdpath "config" .. "/session/"),
+                options = { "buffers", "curdir", "tabpages", "winsize" },
+            }
+        end,
+    },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
@@ -230,3 +310,5 @@ lvim.plugins = {
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
+
+
