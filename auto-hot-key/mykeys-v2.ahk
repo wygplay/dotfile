@@ -1,5 +1,5 @@
 ; vscode中按下esc键切换为英文
-#HotIf WinActive("ahk_exe Code.exe")
+#HotIf WinActive("ahk_exe Code.exe") || WinActive("ahk_exe Qoder.exe")
 Esc::
 {
    SendInput "{Esc}"

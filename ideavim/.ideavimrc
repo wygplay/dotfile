@@ -55,6 +55,7 @@ set multiple-cursors
 set easymotion
 set NERDTree
 set argtextobj
+set functiontextobj
 
 " Plugins configuration -------------------------------------------------
 " vim easymotion configuration
@@ -62,6 +63,8 @@ let g:EasyMotion_do_mapping = 0 " Disable default mappings
 " Turn on case-insensitive feature
 let g:EasyMotion_smartcase = 1
 let g:multi_cursor_use_default_mapping=0
+" argtextobj
+let g:argtextobj_pairs="(:),{:},<:>"
 
 " Default mapping
 let g:multi_cursor_start_word_key      = '<C-n>'
@@ -77,7 +80,7 @@ let g:multi_cursor_quit_key            = '<Esc>'
 " Don't use Ex mode, use Q for formatting.
 nmap Q gq
 " optimize i in insert mode
-inoremap ii <Esc>
+inoremap jk <Esc>
 " idea easymotion 不支持overwin命令
 map f <Plug>(easymotion-sl)
 map t <Plug>(easymotion-tl)
