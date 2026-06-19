@@ -1,5 +1,12 @@
-#!/bin/bash 
+#!/bin/bash
 
 ln -s $WORK_DIR/ideavim/.ideavimrc $HOME/.ideavimrc
 ln -s $WORK_DIR/lunarvim/config.lua $HOME/.config/lvim/config.lua
 
+# AstroNvim user config
+mkdir -p $HOME/.config/nvim/lua/plugins
+ln -sf $WORK_DIR/astrovim/init.lua $HOME/.config/nvim/init.lua
+ln -sf $WORK_DIR/astrovim/lua/lazy_setup.lua $HOME/.config/nvim/lua/lazy_setup.lua
+ln -sf $WORK_DIR/astrovim/lua/community.lua $HOME/.config/nvim/lua/community.lua
+ln -sf $WORK_DIR/astrovim/lua/polish.lua $HOME/.config/nvim/lua/polish.lua
+ln -sf $WORK_DIR/astrovim/lua/plugins/user.lua $HOME/.config/nvim/lua/plugins/user.lua
