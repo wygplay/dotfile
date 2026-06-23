@@ -1,0 +1,46 @@
+font-family = CaskaydiaMono Nerd Font
+
+font-size = 14
+
+window-padding-x = 16
+
+window-padding-y = 14
+
+background-opacity = 0.9
+
+macos-titlebar-style = tabs
+
+macos-window-buttons = hidden
+
+window-position-x = 300
+
+window-position-y = 150
+
+window-width = 100
+
+window-height = 30
+
+copy-on-select = clipboard
+
+
+quick-terminal-position = top
+
+gtk-titlebar = false
+# tab 与标题栏一行展示
+#gtk-titlebar-style = tabs
+
+quick-terminal-screen = main
+
+# 允许窗口失去焦点时自动隐藏（类似 macOS 体验）
+quick-terminal-autohide = true
+
+##### Keybinding ####
+keybind = global:super+backquote=toggle_quick_terminal
+# navigate
+keybind = alt+[=goto_split:previous
+keybind = alt+]=goto_split:next
+
+keybind = ctrl+v=paste_from_clipboard
+keybind = alt+t=new_tab
+keybind = ctrl+d=new_split:right
+keybind = ctrl+shift+d=new_split:down
